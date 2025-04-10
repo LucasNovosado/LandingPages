@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Header from './Header';
 import Footer from './Footer';
 import { generateTitle, generateDescription, generateCanonical, generateLocalBusinessSchema } from '../../utils/seo';
+import styles from './StoreLayout.module.css';
 
 const StoreLayout = ({ children, storeData }) => {
   const title = generateTitle(storeData);
@@ -11,13 +12,14 @@ const StoreLayout = ({ children, storeData }) => {
   const schema = storeData ? generateLocalBusinessSchema(storeData) : null;
   
   return (
-    <>
+    <div className={styles.layoutContainer}>
       <Head>
         <title>{title}</title>
         <meta name="description" content={description} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="canonical" href={canonical} />
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
         
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
@@ -48,12 +50,12 @@ const StoreLayout = ({ children, storeData }) => {
       
       <Header storeData={storeData} />
       
-      <main>
+      <main className={styles.main}>
         {children}
       </main>
       
       <Footer storeData={storeData} />
-    </>
+    </div>
   );
 };
 

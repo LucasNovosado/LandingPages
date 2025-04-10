@@ -1,0 +1,72 @@
+.popupContainer {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    max-width: 28rem;
+    width: 100%;
+  }
+  
+  .header {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #003399;
+    margin-bottom: 0.5rem;
+  }
+  
+  .subtitle {
+    color: #666666;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .label {
+    font-weight: 600;
+  }
+  
+  .input {
+    padding: 0.75rem;
+    border: 1px solid #cccccc;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+  }
+  
+  .input:focus {
+    outline: none;
+    border-color: #003399;
+    box-shadow: 0 0 0 2px rgba(0, 51, 153, 0.2);
+  }
+  
+  .helperText {
+    font-size: 0.75rem;
+    color: #666666;
+  }
+  
+  .buttonGroup {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  .primaryButton {
+    flex: 1;
+  }
+  
+  .secondaryButton {
+    flex-shrink: 0;
+  }

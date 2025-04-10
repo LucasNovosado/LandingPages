@@ -1,0 +1,38 @@
+.footer {
+    background-color: #003399;
+    color: #ffffff;
+    padding: 2rem 0;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  .content {
+    text-align: center;
+  }
+  
+  .paragraph {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .logoContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  
+  .sealImage {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+  }
+  
+  .copyright {
+    margin-top: 1rem;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.8);
+  }

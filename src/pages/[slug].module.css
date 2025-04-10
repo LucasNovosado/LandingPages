@@ -1,0 +1,36 @@
+.errorContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 1rem;
+    text-align: center;
+  }
+  
+  .errorTitle {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: #003399;
+    margin-bottom: 1rem;
+  }
+  
+  .errorMessage {
+    margin-bottom: 2rem;
+    color: #666666;
+  }
+  
+  .backButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    background-color: #003399;
+    color: white;
+    border-radius: 0.25rem;
+    font-weight: 600;
+    transition: background-color 0.3s;
+  }
+  
+  .backButton:hover {
+    background-color: #002266;
+  }
