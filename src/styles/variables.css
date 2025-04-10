@@ -1,0 +1,107 @@
+:root {
+    /* Cores principais - baseadas no design da Rede Única */
+    --blue-primary: #003399;       /* Azul principal da Rede Única */
+    --blue-dark: #002266;          /* Azul escuro para hover */
+    --blue-light: #3366cc;         /* Azul claro para elementos secundários */
+    
+    --yellow-primary: #ffcc00;     /* Amarelo principal da Rede Única */
+    --yellow-dark: #e6b800;        /* Amarelo escuro para hover */
+    --yellow-light: #ffdd33;       /* Amarelo claro para elementos secundários */
+    
+    --red-primary: #cc0000;        /* Vermelho para alertas e a faixa de alerta */
+    --red-dark: #990000;           /* Vermelho escuro */
+    
+    /* Cores neutras */
+    --white: #ffffff;
+    --gray-100: #f5f5f5;  /* Fundo alternativo claro */
+    --gray-200: #eeeeee;
+    --gray-300: #dddddd;
+    --gray-400: #cccccc;
+    --gray-500: #999999;
+    --gray-600: #666666;
+    --gray-700: #444444;
+    --gray-800: #333333;
+    --gray-900: #222222;
+    --black: #000000;
+    
+    /* Cores funcionais */
+    --success: #339933;            /* Verde para sucesso */
+    --warning: #ff9900;            /* Laranja para avisos */
+    --info: #3399cc;               /* Azul info para mensagens */
+    
+    /* Cores para botões específicos */
+    --whatsapp: #25d366;           /* Cor oficial do WhatsApp */
+    --whatsapp-dark: #1da851;      /* WhatsApp hover */
+    --call: #0066cc;               /* Cor para botão de ligar */
+    --call-dark: #0055aa;          /* Hover do botão de ligar */
+    --maps: #4285F4;               /* Cor para botão do Google Maps */
+    --maps-dark: #3367d6;          /* Hover do Maps */
+    
+    /* Tipografia */
+    --font-primary: 'Montserrat', sans-serif;
+    --font-size-base: 16px;
+    --line-height-base: 1.5;
+    
+    /* Tamanhos de fonte */
+    --font-size-xs: 0.75rem;       /* 12px */
+    --font-size-sm: 0.875rem;      /* 14px */
+    --font-size-md: 1rem;          /* 16px - Base */
+    --font-size-lg: 1.125rem;      /* 18px */
+    --font-size-xl: 1.25rem;       /* 20px */
+    --font-size-2xl: 1.5rem;       /* 24px */
+    --font-size-3xl: 1.875rem;     /* 30px */
+    --font-size-4xl: 2.25rem;      /* 36px */
+    --font-size-5xl: 3rem;         /* 48px */
+    
+    /* Espessuras de fonte */
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    
+    /* Espaçamento */
+    --spacing-xs: 0.25rem;         /* 4px */
+    --spacing-sm: 0.5rem;          /* 8px */
+    --spacing-md: 1rem;            /* 16px */
+    --spacing-lg: 1.5rem;          /* 24px */
+    --spacing-xl: 2rem;            /* 32px */
+    --spacing-2xl: 3rem;           /* 48px */
+    --spacing-3xl: 4rem;           /* 64px */
+    
+    /* Bordas e arredondamentos */
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    --border-radius-xl: 16px;
+    --border-radius-full: 9999px;  /* Para botões totalmente arredondados */
+    
+    /* Sombras */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+    
+    /* Transições */
+    --transition-fast: 150ms ease;
+    --transition-normal: 300ms ease;
+    --transition-slow: 500ms ease;
+    
+    /* Z-index */
+    --z-index-dropdown: 1000;
+    --z-index-sticky: 1020;
+    --z-index-fixed: 1030;
+    --z-index-modal-backdrop: 1040;
+    --z-index-modal: 1050;
+    --z-index-popover: 1060;
+    --z-index-tooltip: 1070;
+    
+    /* Breakpoints */
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    
+    /* Container */
+    --container-padding: 1rem;
+    --container-max-width: 1200px;
+  }
