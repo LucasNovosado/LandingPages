@@ -19,7 +19,6 @@ const StoreLayout = ({ children, storeData }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="canonical" href={canonical} />
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
         
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
