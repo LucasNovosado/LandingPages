@@ -1,0 +1,86 @@
+/* StoreInfo.module.css */
+.storeInfoGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .storeInfoGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.storeImage img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.storeImage img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.storeInfoCard {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+.storeInfoTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #003399;
+}
+
+.storeInfoItem {
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.storeInfoItem:last-child {
+  border-bottom: none;
+}
+
+.storeInfoLabel {
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.25rem;
+  display: block;
+}
+
+.storeInfoValue {
+  color: #6b7280;
+  line-height: 1.4;
+}
+
+.mapButton {
+  margin-top: 2rem;
+}
+
+/* Ícones para os itens de informação */
+.storeInfoItem[data-type="phone"] .storeInfoLabel::before {
+  content: "📞 ";
+}
+
+.storeInfoItem[data-type="address"] .storeInfoLabel::before {
+  content: "📍 ";
+}
+
+.storeInfoItem[data-type="hours"] .storeInfoLabel::before {
+  content: "🕒 ";
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .storeInfoCard {
+    padding: 1.5rem;
+  }
+}

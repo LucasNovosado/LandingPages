@@ -1,0 +1,236 @@
+/* StorePage.module.css - CSS Base Corrigido */
+
+/* Em vez de usar :global(body) diretamente, crie uma classe global em outro arquivo */
+/* Ou use uma classe local que afeta todo o componente */
+.pageContainer {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  font-family: 'Montserrat', sans-serif;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Você pode adicionar esta classe ao elemento body no seu _app.js ou outro componente de layout */
+.globalReset :global(body),
+.globalReset :global(html) {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.container {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  font-family: 'Montserrat', sans-serif;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.section {
+  padding: 3rem 0;
+}
+
+/* Seção hero de largura completa */
+.heroFullWidth {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  border-radius: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Ajuste para as seções após o hero */
+.section:not(.heroFullWidth) {
+  padding: 3rem 0;
+  margin: 0 auto;
+}
+
+.sectionContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Remover padding do conteúdo da seção hero */
+.heroFullWidth .sectionContent {
+  width: 100%;
+  max-width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.sectionWhite {
+  background-color: #ffffff;
+}
+
+.sectionGray {
+  background-color: #f5f5f5;
+}
+
+.sectionTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  color: #003399;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .sectionTitle {
+    font-size: 2.5rem;
+  }
+}
+
+/* Loading States */
+.loaderContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  flex-direction: column;
+}
+
+.loader {
+  border: 5px solid #f5f5f5;
+  border-top: 5px solid #003399;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loadingText {
+  color: #6b7280;
+  font-size: 1.1rem;
+}
+
+/* Error States */
+.errorContainer {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.errorCard {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 3rem;
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+}
+
+.errorTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #cc0000;
+  margin-bottom: 1rem;
+}
+
+.errorMessage {
+  color: #6b7280;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Botões Globais */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  gap: 0.5rem;
+}
+
+.btnWhatsapp {
+  background-color: #25d366;
+  color: #ffffff;
+}
+
+.btnWhatsapp:hover {
+  background-color: #1da851;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+.btnCall {
+  background-color: #0066cc;
+  color: #ffffff;
+}
+
+.btnCall:hover {
+  background-color: #0055aa;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+}
+
+.btnPrimary {
+  background-color: #003399;
+  color: #ffffff;
+}
+
+.btnPrimary:hover {
+  background-color: #002266;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 51, 153, 0.3);
+}
+
+/* Ajustes para garantir que o hero cubra toda a dobra */
+.heroFullWidth + .section {
+  margin-top: 0;
+}
+
+/* Remover margem superior da primeira seção não-hero */
+.heroFullWidth + section {
+  margin-top: 0;
+}
+
+/* Responsividade Global */
+@media (max-width: 768px) {
+  .section {
+    padding: 2rem 0;
+  }
+  
+  .sectionContent {
+    padding: 0 1rem;
+  }
+  
+  .btn {
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+  }
+  
+  .errorCard {
+    padding: 2rem;
+  }
+}
+

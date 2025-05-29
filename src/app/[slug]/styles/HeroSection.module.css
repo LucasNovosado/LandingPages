@@ -1,0 +1,749 @@
+/* HeroSection.module.css - Versão Completa e Finalizada */
+
+/* Import Poppins font (adicione ao seu CSS global ou layout principal se ainda não estiver lá) */
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap'); */
+
+/* Header com Logo */
+.headerLogo {
+  text-align: center;
+  padding: 1rem 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.logoImage {
+  min-height: 80px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.logoImage:hover {
+  transform: scale(1.05);
+}
+
+/* Grid básico com largura parcial (mantido para compatibilidade, se necessário) */
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 3rem 1rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #001e59 0%, #0055aa 100%);
+  box-shadow: 0 10px 30px rgba(0, 30, 90, 0.3);
+}
+
+/* Nova versão do grid que cobre toda a dobra - Melhorado */
+.heroGridFullWidth {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 4rem 1rem;
+  background: linear-gradient(145deg, #001a4d 0%, #004080 70%, #0055aa 100%);
+  min-height: 90vh;
+  width: 100%;
+  margin: 0;
+  z-index: 1;
+}
+
+/* Elementos de fundo animados - Refinados e Adicionados */
+.heroGrid::before, .heroGrid::after,
+.heroGridFullWidth::before, .heroGridFullWidth::after,
+.heroGridFullWidth::selection {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Camada 1: Pulsos Radiais Suaves */
+.heroGrid::before,
+.heroGridFullWidth::before {
+  background:
+    radial-gradient(circle at 15% 30%, rgba(0, 200, 255, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 85% 70%, rgba(50, 100, 255, 0.1) 0%, transparent 50%);
+  animation: pulseBg 10s ease-in-out infinite alternate;
+}
+
+/* Camada 2: Linhas em Movimento */
+.heroGrid::after,
+.heroGridFullWidth::after {
+  background-image:
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.03) 0px, rgba(255, 255, 255, 0.03) 1px, transparent 1px, transparent 15px),
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0px, rgba(255, 255, 255, 0.02) 1px, transparent 1px, transparent 15px);
+  animation: moveBg 30s linear infinite;
+  opacity: 0.5;
+}
+
+/* Nova Camada 3: Constelação de Pontos Sutis */
+.heroGridFullWidth::selection {
+  background-image: radial-gradient(rgba(200, 220, 255, 0.1) 0.5px, transparent 0.5px);
+  background-size: 20px 20px;
+  animation: subtleSparkle 20s linear infinite;
+}
+
+@keyframes pulseBg {
+  0% { opacity: 0.15; transform: scale(1); }
+  100% { opacity: 0.35; transform: scale(1.05); }
+}
+
+@keyframes moveBg {
+  0% { background-position: 0 0; }
+  100% { background-position: 200px 200px; }
+}
+
+@keyframes subtleSparkle {
+  0% { background-position: 0 0; }
+  100% { background-position: -40px -40px; }
+}
+
+/* Partículas Elétricas - Refinadas */
+.heroGrid .particles,
+.heroGridFullWidth .particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.heroGrid .particle,
+.heroGridFullWidth .particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: rgba(120, 220, 255, 0.7);
+  border-radius: 50%;
+  box-shadow: 0 0 10px 3px rgba(120, 220, 255, 0.3);
+  animation: particleFloat 10s infinite linear;
+  opacity: 0;
+}
+
+/* Variações de partículas */
+.heroGrid .particle:nth-child(1), .heroGridFullWidth .particle:nth-child(1) { top: 15%; left: 10%; animation-duration: 13s; animation-delay: 0s; }
+.heroGrid .particle:nth-child(2), .heroGridFullWidth .particle:nth-child(2) { top: 50%; left: 25%; animation-duration: 16s; animation-delay: -2s; }
+.heroGrid .particle:nth-child(3), .heroGridFullWidth .particle:nth-child(3) { top: 25%; left: 70%; animation-duration: 11s; animation-delay: -4s; }
+.heroGrid .particle:nth-child(4), .heroGridFullWidth .particle:nth-child(4) { top: 75%; left: 85%; animation-duration: 14s; animation-delay: -1s; }
+.heroGrid .particle:nth-child(5), .heroGridFullWidth .particle:nth-child(5) { top: 35%; left: 45%; animation-duration: 17s; animation-delay: -3s; }
+.heroGrid .particle:nth-child(6), .heroGridFullWidth .particle:nth-child(6) { top: 85%; left: 15%; animation-duration: 19s; animation-delay: -5s; }
+.heroGridFullWidth .particle:nth-child(7) { top: 5%; left: 50%; animation-duration: 12s; animation-delay: -2.5s; }
+.heroGridFullWidth .particle:nth-child(8) { top: 90%; left: 60%; animation-duration: 15s; animation-delay: -3.5s; }
+
+@keyframes particleFloat {
+  0% {
+    transform: translateY(20px) translateX(0) scale(0.5);
+    opacity: 0;
+  }
+  10%, 80% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-180px) translateX(80px) scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* Linhas de Energia - Refinadas */
+.heroGrid .energyLine,
+.heroGridFullWidth .energyLine {
+  position: absolute;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(100, 200, 255, 0.3), transparent);
+  animation: energyPulse 5s infinite ease-in-out;
+  z-index: 0;
+  opacity: 0.7;
+}
+
+/* Variações */
+.heroGrid .energyLine:nth-child(1), .heroGridFullWidth .energyLine:nth-child(1) { width: 25%; top: 15%; left: 0; animation-delay: 0s; }
+.heroGrid .energyLine:nth-child(2), .heroGridFullWidth .energyLine:nth-child(2) { width: 35%; top: 35%; right: 0; animation-delay: -1.5s; }
+.heroGrid .energyLine:nth-child(3), .heroGridFullWidth .energyLine:nth-child(3) { width: 20%; top: 65%; left: 10%; animation-delay: -2.5s; }
+.heroGrid .energyLine:nth-child(4), .heroGridFullWidth .energyLine:nth-child(4) { width: 30%; top: 85%; right: 5%; animation-delay: -3.5s; }
+
+@keyframes energyPulse {
+  0%, 100% { transform: scaleX(0.2); opacity: 0.3; }
+  50% { transform: scaleX(1); opacity: 0.7; }
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.heroContent h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  line-height: 1.3;
+  text-shadow: 0 0 15px rgba(0, 120, 255, 0.5);
+  position: relative;
+  transition: transform 0.3s ease, opacity 0.5s ease;
+}
+
+/* Pode-se adicionar um subtítulo se necessário */
+.heroSubtitle {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  max-width: 600px;
+  transition: transform 0.3s ease, opacity 0.5s ease;
+  transition-delay: 0.2s;
+}
+
+.heroContent h2::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  height: 3px;
+  width: 70px;
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  border-radius: 2px;
+}
+
+/* Imagem do produto no mobile - Nova classe */
+.heroImageMobile {
+  display: none; /* Oculta por padrão */
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  margin: 1.5rem 0;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease, opacity 0.5s ease;
+}
+
+.priceBox {
+  background: rgba(255, 204, 0, 0.98);
+  backdrop-filter: blur(8px);
+  border-radius: 10px;
+  padding: 1.5rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2),
+              inset 0 1px 3px rgba(255, 255, 255, 0.6),
+              0 0 0 1.5px rgba(255, 204, 0, 0.5);
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  max-width: 380px;
+  transition-delay: 0.4s;
+  z-index: 3;
+}
+
+.priceBox:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25),
+              inset 0 1px 3px rgba(255, 255, 255, 0.7),
+              0 0 0 1.5px rgba(255, 204, 0, 0.6);
+}
+
+/* Brilho sutil nos cantos */
+.priceBox::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+}
+
+.priceBox:hover::before {
+  opacity: 1;
+}
+
+/* Efeito de brilho geral */
+.priceBox::after {
+  content: "";
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: linear-gradient(to bottom right, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 40%, rgba(255,255,255,0) 50%);
+  transform: rotate(30deg);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Ícone no Price Box */
+.priceBoxIcon {
+  font-size: 1.8rem;
+  color: #003366;
+  margin-bottom: 0.5rem;
+  display: block;
+  position: relative;
+  z-index: 2;
+}
+
+.priceValue {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin-bottom: 0.75rem;
+  position: relative;
+  display: inline-block;
+  z-index: 2;
+}
+
+.priceValue::before {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 2.5px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+}
+
+.priceNote {
+  font-family: 'Poppins', sans-serif;
+  color: #333333;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  position: relative;
+  z-index: 2;
+}
+
+.pricePayment {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.85rem;
+  color: rgba(0, 0, 0, 0.65);
+  position: relative;
+  z-index: 2;
+}
+
+/* Badge animado no Price Box */
+.priceBoxBadge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #ff4d4d, #cc0000);
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px 15px 5px 5px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  animation: pulseBadge 2s infinite ease-in-out;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+@keyframes pulseBadge {
+  0%, 100% { transform: translateX(-50%) scale(1); }
+  50% { transform: translateX(-50%) scale(1.05); }
+}
+
+.buttonsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+  margin-top: 1.5rem;
+  transition-delay: 0.6s;
+  z-index: 2;
+}
+
+/* Estilo para botões - Melhorado */
+.buttonsContainer :global(.btnWhatsapp),
+.buttonsContainer :global(.btnCall) {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  padding: 0.9rem 1.8rem;
+  border-radius: 8px;
+  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
+  border: none !important;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.buttonsContainer :global(.btnWhatsapp) {
+  background: linear-gradient(135deg, #25d366 0%, #12a55a 100%) !important;
+  box-shadow: 0 5px 18px rgba(37, 211, 102, 0.35) !important;
+  color: white !important;
+}
+
+.buttonsContainer :global(.btnCall) {
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%) !important;
+  box-shadow: 0 5px 18px rgba(0, 123, 255, 0.35) !important;
+  color: white !important;
+}
+
+/* Efeito de brilho ao passar o mouse */
+.buttonsContainer :global(.btnWhatsapp)::before,
+.buttonsContainer :global(.btnCall)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.25) 50%, rgba(255,255,255,0) 100%);
+  transform: skewX(-25deg);
+  transition: all 0.7s ease;
+  z-index: -1;
+}
+
+.buttonsContainer :global(.btnWhatsapp):hover,
+.buttonsContainer :global(.btnCall):hover {
+  transform: translateY(-4px) scale(1.05);
+}
+
+.buttonsContainer :global(.btnWhatsapp):hover {
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.45) !important;
+}
+
+.buttonsContainer :global(.btnCall):hover {
+  box-shadow: 0 10px 25px rgba(0, 123, 255, 0.45) !important;
+}
+
+.buttonsContainer :global(.btnWhatsapp):hover::before,
+.buttonsContainer :global(.btnCall):hover::before {
+  animation: shineEffect 1.2s infinite cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+@keyframes shineEffect {
+  0% { left: -120%; opacity: 0.5; }
+  50% { opacity: 1; }
+  100% { left: 120%; opacity: 0.5; }
+}
+
+/* Ícones nos botões */
+.btnIcon {
+  display: inline-block;
+  margin-right: 0.75rem;
+  font-size: 1.2em;
+  animation: pulseIcon 2.5s infinite ease-in-out;
+  line-height: 1;
+}
+
+@keyframes pulseIcon {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+.heroImage {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition-delay: 0.8s;
+}
+
+.productImage {
+  max-width: 100%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2),
+              0 0 25px rgba(0, 155, 255, 0.3);
+  max-height: 450px;
+  object-fit: contain;
+  transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+}
+
+.productImage:hover {
+  transform: scale(1.03) translateY(-8px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25),
+              0 0 35px rgba(0, 155, 255, 0.45);
+}
+
+.placeholderImage {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border-radius: 15px;
+  padding: 3rem;
+  text-align: center;
+  border: 2px dashed rgba(200, 220, 255, 0.25);
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 350px;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.placeholderImage:hover {
+  border-color: rgba(0, 180, 255, 0.4);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.placeholderIcon {
+  font-size: 4.5rem;
+  color: rgba(200, 220, 255, 0.7);
+  margin-bottom: 1rem;
+  text-shadow: 0 0 20px rgba(0, 155, 255, 0.6);
+  animation: floatIcon 3.5s ease-in-out infinite;
+}
+
+@keyframes floatIcon {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.placeholderText {
+  font-family: 'Poppins', sans-serif;
+  color: rgba(230, 240, 255, 0.85);
+  font-size: 1.15rem;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+/* Animações de Entrada (Fade-in / Slide-in) */
+.fadeInUp {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUpAnimation 0.8s forwards cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.fadeIn {
+  opacity: 0;
+  animation: fadeInAnimation 0.8s forwards cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+@keyframes fadeInUpAnimation {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInAnimation {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Delays para animações encadeadas */
+.delay-1 { animation-delay: 0.2s !important; }
+.delay-2 { animation-delay: 0.4s !important; }
+.delay-3 { animation-delay: 0.6s !important; }
+.delay-4 { animation-delay: 0.8s !important; }
+.delay-5 { animation-delay: 1.0s !important; }
+
+/* Indicador de Scroll (Mobile - opcional, simples) */
+.scrollIndicatorMobile {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 50px;
+  z-index: 1000;
+  display: none;
+}
+
+.scrollIndicatorMobile::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 30px;
+  background: rgba(255,255,255,0.7);
+  transform: translateX(-50%);
+  animation: scrollHintLine 2s infinite ease-out;
+}
+
+.scrollIndicatorMobile::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  border-left: 2px solid rgba(255,255,255,0.7);
+  border-bottom: 2px solid rgba(255,255,255,0.7);
+  transform: translateX(-50%) rotate(-45deg);
+  animation: scrollHintArrow 2s infinite ease-out;
+}
+
+@keyframes scrollHintLine {
+  0% { height: 0; top: 0; opacity: 0;}
+  50% { height: 30px; opacity: 1;}
+  100% { height: 0; top: 30px; opacity: 0;}
+}
+
+@keyframes scrollHintArrow {
+  0%, 100% { opacity: 0; transform: translateX(-50%) translateY(-5px) rotate(-45deg); }
+  50% { opacity: 1; transform: translateX(-50%) translateY(0) rotate(-45deg); }
+}
+
+/* Responsividade */
+@media (min-width: 768px) {
+  .headerLogo {
+    padding: 1.5rem 0;
+  }
+  
+  .logoImage {
+    max-height: 100px;
+  }
+  
+  .heroGridFullWidth {
+    grid-template-columns: 1fr 1fr;
+    padding: 6rem 2rem;
+    gap: 3rem;
+  }
+  
+  .heroContent {
+    padding: 0 2rem;
+    align-items: flex-start;
+    text-align: left;
+  }
+  
+  .heroContent h2 {
+    font-size: 3rem;
+  }
+  
+  .heroContent h2::after {
+    left: 0;
+  }
+  
+  .heroImageMobile {
+    display: none !important; /* Oculta no desktop */
+  }
+  
+  .priceBox {
+    margin-left: 0;
+    margin-right: auto;
+  }
+  
+  .buttonsContainer {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+  
+  .buttonsContainer :global(.btnWhatsapp),
+  .buttonsContainer :global(.btnCall) {
+    width: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .headerLogo {
+    padding: 0.75rem 0;
+  }
+  
+  .logoImage {
+    max-height: 60px;
+  }
+  
+  .heroGridFullWidth {
+    padding: 3rem 1rem;
+    min-height: unset;
+    grid-template-areas:
+      "content";
+    grid-template-columns: 1fr;
+  }
+  
+  .heroContent {
+    grid-area: content;
+    align-items: center;
+    text-align: center;
+    padding: 0;
+  }
+  
+  .heroContent h2 {
+    font-size: 1.8rem;
+  }
+  
+  .heroContent h2::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .heroSubtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .heroImageMobile {
+    display: flex !important; /* Mostra no mobile */
+  }
+  
+  .heroImageMobile .productImage {
+    max-height: 250px;
+    max-width: 100%;
+  }
+  
+  .heroImage {
+    display: none !important; /* Oculta a imagem lateral no mobile */
+  }
+  
+  .priceBox {
+    padding: 1.2rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .priceValue {
+    font-size: 1.8rem;
+  }
+  
+  .buttonsContainer {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .buttonsContainer :global(.btnWhatsapp),
+  .buttonsContainer :global(.btnCall) {
+    width: 100%;
+    max-width: 320px;
+    font-size: 0.9rem;
+    padding: 0.8rem 1.5rem;
+  }
+  
+  .heroGrid::before, .heroGrid::after,
+  .heroGridFullWidth::before, .heroGridFullWidth::after,
+  .heroGridFullWidth::selection {
+    opacity: 0.1;
+  }
+  
+  .scrollIndicatorMobile {
+    display: block;
+  }
+}

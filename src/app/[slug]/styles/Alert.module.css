@@ -1,0 +1,117 @@
+/* Alert.module.css */
+.alertSection {
+  background: linear-gradient(135deg, #cc0000 0%, #990000 100%);
+  color: #ffffff;
+  padding: 3rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.alertSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="warning" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><text x="10" y="15" text-anchor="middle" fill="rgba(255,255,255,0.1)" font-size="16">⚠️</text></pattern></defs><rect width="100%" height="100%" fill="url(%23warning)"/></svg>');
+  opacity: 0.1;
+}
+
+.alertTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #ffffff;
+  position: relative;
+  z-index: 1;
+}
+
+.alertGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 768px) {
+  .alertGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.alertCard {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.alertCard:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-5px);
+}
+
+.alertCardPrimary {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.alertCardTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.alertCardTitle::before {
+  content: "⚠️";
+  font-size: 1.25rem;
+}
+
+.alertList {
+  list-style: none;
+  padding: 0;
+}
+
+.alertListItem {
+  margin-bottom: 0.75rem;
+  padding-left: 2rem;
+  position: relative;
+  color: #ffffff;
+  line-height: 1.5;
+}
+
+.alertListItem::before {
+  content: "❌";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 1rem;
+}
+
+.alertCard:not(.alertCardPrimary) .alertListItem::before {
+  content: "🔍";
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .alertTitle {
+    font-size: 1.5rem;
+  }
+  
+  .alertCard {
+    padding: 1.5rem;
+  }
+  
+  .alertCardTitle {
+    font-size: 1.25rem;
+  }
+}
