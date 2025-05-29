@@ -17,6 +17,7 @@ export default function HomePage() {
         const sortedStores = storesData.sort((a, b) => 
           a.cidade > b.cidade ? 1 : a.cidade < b.cidade ? -1 : 0
         );
+        
         setStores(sortedStores);
       } catch (error) {
         console.error('Erro ao carregar lojas:', error);
