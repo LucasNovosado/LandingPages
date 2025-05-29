@@ -83,6 +83,7 @@ export const getPricesByState = async (state) => {
 };
 
 // Função para listar todas as lojas (para getStaticPaths)
+// Função para listar todas as lojas (para getStaticPaths e página inicial)
 export const getAllStores = async () => {
   try {
     const Store = Parse.Object.extend('Lojas');
@@ -90,7 +91,17 @@ export const getAllStores = async () => {
     const stores = await query.find();
     
     return stores.map(store => ({
-      slug: store.get('slug')
+      id: store.id,
+      slug: store.get('slug'),
+      cidade: store.get('cidade'),
+      estado: store.get('estado'),
+      telefone: store.get('telefone'),
+      preco_inicial: store.get('preco_inicial'),
+      imagem_produto: store.get('imagem_produto')?.url(),
+      imagem_loja: store.get('imagem_loja')?.url(),
+      link_whatsapp: store.get('link_whatsapp'),
+      link_maps: store.get('link_maps'),
+      popup_tipo: store.get('popup_tipo') || 'whatsapp'
     }));
   } catch (error) {
     console.error('Erro ao listar lojas:', error);
