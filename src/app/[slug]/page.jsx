@@ -4,29 +4,25 @@ import { useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { initializeParse, getStoreBySlug } from '../../services/parseService';
 
-// Import modular CSS
-import commonStyles from './Common.module.css';
-import headerStyles from './Header.module.css';
-import heroStyles from './Hero.module.css';
-import benefitsStyles from './Benefits.module.css';
-import storeInfoStyles from './StoreInfo.module.css';
-import footerStyles from './Footer.module.css';
+// Import components
+import Header from './components/Header/Header';
+import Hero from './components/Hero/Hero';
+import Benefits from './components/Benefits/Benefits';
+import StoreInfo from './components/StoreInfo/StoreInfo';
+import Footer from './components/Footer/Footer';
+import ElevatedButton from './components/ElevatedButton/ElevatedButton';
 
-// Import JavaScript controllers
+// Import common styles
+import commonStyles from './components/Common.module.css';
+
+// Import controllers
 import { pageController } from './js/pageController.js';
 import { 
   handleWhatsAppClick, 
-  handleCallClick, 
-  formatPrice 
+  handleCallClick 
 } from './js/heroActions.js';
-import { 
-  handleBenefitsCTA, 
-  defaultBenefits 
-} from './js/benefitsData.js';
-import { 
-  handleMapClick, 
-  formatPhoneNumber 
-} from './js/storeInfoActions.js';
+import { handleBenefitsCTA } from './js/benefitsData.js';
+import { handleMapClick } from './js/storeInfoActions.js';
 
 export default function StorePage() {
   const params = useParams();
@@ -116,7 +112,16 @@ export default function StorePage() {
           </p>
           <button 
             onClick={() => router.push('/')}
-            className={`${heroStyles.btn} ${heroStyles.btnPrimary}`}
+            style={{
+              padding: '1rem 2rem',
+              backgroundColor: '#1e3c72',
+              color: 'white',
+              border: 'none',
+              borderRadius: '50px',
+              cursor: 'pointer',
+              fontSize: '1.1rem',
+              fontWeight: '600'
+            }}
           >
             Voltar para a página inicial
           </button>
@@ -127,304 +132,36 @@ export default function StorePage() {
 
   return (
     <div className={commonStyles.container}>
-      
-      {/* ========== HEADER SECTION ========== */}
-      <HeaderSection storeData={storeData} />
-      
-      {/* ========== HERO SECTION ========== */}
-      <HeroSection 
+            
+      {/* Hero Section */}
+      <Hero 
         storeData={storeData} 
         onWhatsAppClick={handleWhatsApp}
         onCallClick={handleCall}
       />
       
-      {/* ========== BENEFITS SECTION ========== */}
-      <BenefitsSection 
+      {/* Benefits Section */}
+      <Benefits 
         storeData={storeData}
         onCTAClick={handleBenefitsCTAClick}
       />
       
-      {/* ========== STORE INFO SECTION ========== */}
+      {/* Store Info Section - Only if has store image */}
       {storeData.imagem_loja && (
-        <StoreInfoSection 
+        <StoreInfo 
           storeData={storeData}
           onMapClick={handleMap}
         />
       )}
       
-      {/* ========== FOOTER SECTION ========== */}
-      <FooterSection storeData={storeData} />
+      {/* Footer Section */}
+      <Footer storeData={storeData} />
       
+      {/* Elevated WhatsApp Button - Flutuante */}
+      <ElevatedButton 
+        onClick={handleWhatsApp}
+        storeData={storeData}
+      />
     </div>
-  );
-}
-
-// ========== HEADER COMPONENT ==========
-function HeaderSection({ storeData }) {
-  return (
-    <header className={headerStyles.header}>
-      <div className={headerStyles.headerContent}>
-        <h1 className={headerStyles.headerTitle}>
-          🔋 Rede Única de Baterias - {storeData.cidade}
-        </h1>
-        <p className={headerStyles.headerSubtitle}>
-          Bateria Automotiva com Garantia de Fábrica
-        </p>
-      </div>
-    </header>
-  );
-}
-
-// ========== HERO COMPONENT ==========
-function HeroSection({ storeData, onWhatsAppClick, onCallClick }) {
-  return (
-    <section className={`${commonStyles.section} ${commonStyles.sectionWhite}`}>
-      <div className={commonStyles.sectionContent}>
-        <div className={heroStyles.heroGrid}>
-          
-          {/* Hero Content */}
-          <div className={heroStyles.heroContent}>
-            <h2>
-              Bateria Automotiva em {storeData.cidade}
-              <br />
-              com Garantia de Fábrica
-            </h2>
-            
-            {/* Price Box */}
-            {storeData.preco_inicial && (
-              <div className={heroStyles.priceBox}>
-                <div className={heroStyles.priceValue}>
-                  A partir de R$ {formatPrice(storeData.preco_inicial) || storeData.preco_inicial}
-                </div>
-                <p className={heroStyles.priceNote}>
-                  + Entrega e Instalação GRÁTIS
-                </p>
-                <p className={heroStyles.pricePayment}>
-                  *À vista ou no cartão em até 12x
-                </p>
-              </div>
-            )}
-            
-            {/* Action Buttons */}
-            <div className={heroStyles.buttonsContainer}>
-              <button 
-                className={`${heroStyles.btn} ${heroStyles.btnWhatsapp}`}
-                onClick={onWhatsAppClick}
-                disabled={!storeData.link_whatsapp}
-              >
-                <span>💬</span>
-                Pedir Bateria
-              </button>
-              
-              {storeData.telefone && (
-                <button 
-                  className={`${heroStyles.btn} ${heroStyles.btnCall}`}
-                  onClick={onCallClick}
-                >
-                  <span>📞</span>
-                  Ligar Agora
-                </button>
-              )}
-            </div>
-          </div>
-          
-          {/* Hero Image */}
-          <div className={heroStyles.heroImage}>
-            {storeData.imagem_produto ? (
-              <img 
-                src={storeData.imagem_produto}
-                alt={`Bateria Automotiva - ${storeData.cidade}`}
-                className={heroStyles.productImage}
-                loading="lazy"
-              />
-            ) : (
-              <div className={heroStyles.placeholderImage}>
-                <div className={heroStyles.placeholderIcon}>🔋</div>
-                <p className={heroStyles.placeholderText}>Bateria Automotiva</p>
-              </div>
-            )}
-          </div>
-          
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// ========== BENEFITS COMPONENT ==========
-function BenefitsSection({ storeData, onCTAClick }) {
-  const benefits = defaultBenefits;
-
-  return (
-    <section className={`${commonStyles.section} ${commonStyles.sectionGray}`}>
-      <div className={commonStyles.sectionContent}>
-        <h2 className={commonStyles.sectionTitle}>
-          Por que comprar com a Rede Única?
-        </h2>
-        
-        {/* Benefits Grid */}
-        <div className={benefitsStyles.benefitsGrid}>
-          {benefits.map((benefit, index) => (
-            <BenefitCard 
-              key={benefit.id} 
-              benefit={benefit} 
-              index={index}
-            />
-          ))}
-        </div>
-        
-        {/* CTA Section */}
-        <div className={benefitsStyles.ctaSection}>
-          <button 
-            className={`${benefitsStyles.btn} ${benefitsStyles.btnWhatsapp}`}
-            onClick={onCTAClick}
-            disabled={!storeData.link_whatsapp}
-          >
-            <span>💬</span>
-            Pedir Bateria Agora
-          </button>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// ========== BENEFIT CARD COMPONENT ==========
-function BenefitCard({ benefit, index }) {
-  return (
-    <div 
-      className={benefitsStyles.card} 
-      data-benefit-card
-      style={{ animationDelay: `${index * 0.2}s` }}
-    >
-      <div className={benefitsStyles.cardIcon}>
-        {benefit.icon}
-      </div>
-      <h3 className={benefitsStyles.cardTitle}>
-        {benefit.title}
-      </h3>
-      <p className={benefitsStyles.cardDescription}>
-        {benefit.description}
-      </p>
-    </div>
-  );
-}
-
-// ========== STORE INFO COMPONENT ==========
-function StoreInfoSection({ storeData, onMapClick }) {
-  return (
-    <section className={`${commonStyles.section} ${commonStyles.sectionWhite}`}>
-      <div className={commonStyles.sectionContent}>
-        <h2 className={commonStyles.sectionTitle}>
-          Veja como nos encontrar
-        </h2>
-        
-        <div className={storeInfoStyles.storeInfoGrid}>
-          
-          {/* Store Image */}
-          <div className={storeInfoStyles.storeImage}>
-            <img 
-              src={storeData.imagem_loja}
-              alt={`Rede Única de Baterias - Loja de ${storeData.cidade}`}
-              loading="lazy"
-            />
-          </div>
-          
-          {/* Store Info Card */}
-          <div>
-            <div className={storeInfoStyles.storeInfoCard}>
-              <h3 className={`${storeInfoStyles.storeInfoTitle} storeInfoTitle`}>
-                Rede Única de Baterias - {storeData.cidade}
-              </h3>
-              
-              {/* Phone Info */}
-              {storeData.telefone && (
-                <StoreInfoItem 
-                  label="Telefone:"
-                  value={formatPhoneNumber(storeData.telefone)}
-                  isPhone={true}
-                />
-              )}
-              
-              {/* Address Info */}
-              <StoreInfoItem 
-                label="Endereço:"
-                value={`${storeData.cidade}, ${storeData.estado}`}
-              />
-              
-              {/* Business Hours */}
-              <StoreInfoItem 
-                label="Horário de Funcionamento:"
-                value={
-                  <>
-                    <p className={storeInfoStyles.storeInfoValue}>Segunda a Sexta: 8h às 18h</p>
-                    <p className={storeInfoStyles.storeInfoValue}>Sábado: 8h às 12h</p>
-                  </>
-                }
-                isMultiline={true}
-              />
-              
-              {/* Map Button */}
-              {storeData.link_maps && (
-                <div className={storeInfoStyles.mapButton}>
-                  <button 
-                    className={`${storeInfoStyles.btn} ${storeInfoStyles.btnPrimary}`}
-                    onClick={onMapClick}
-                    data-action="map"
-                  >
-                    <span>📍</span>
-                    Traçar Rota
-                  </button>
-                </div>
-              )}
-            </div>
-          </div>
-          
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// ========== STORE INFO ITEM COMPONENT ==========
-function StoreInfoItem({ label, value, isPhone, isMultiline }) {
-  return (
-    <div className={storeInfoStyles.storeInfoItem}>
-      <p className={storeInfoStyles.storeInfoLabel}>{label}</p>
-      {isMultiline ? (
-        <div>{value}</div>
-      ) : isPhone ? (
-        <p className={storeInfoStyles.storeInfoValue} data-phone>
-          <a href={`tel:+55${value.replace(/\D/g, '')}`} aria-label={`Ligar para ${value}`}>
-            {value}
-          </a>
-        </p>
-      ) : (
-        <p className={storeInfoStyles.storeInfoValue}>{value}</p>
-      )}
-    </div>
-  );
-}
-
-// ========== FOOTER COMPONENT ==========
-function FooterSection({ storeData }) {
-  return (
-    <footer className={footerStyles.footer}>
-      <div className={footerStyles.footerContent}>
-        <p className={`${footerStyles.footerCopyright} footerCopyright`}>
-          &copy; {new Date().getFullYear()} Rede Única de Baterias. Todos os direitos reservados.
-        </p>
-        <p className={footerStyles.footerTagline}>
-          🔋 A maior rede de lojas de baterias automotivas do Brasil!
-        </p>
-        
-        {/* Additional Footer Info */}
-        {storeData.cidade && (
-          <p className={footerStyles.footerLocation}>
-            Atendendo {storeData.cidade} e região
-          </p>
-        )}
-      </div>
-    </footer>
   );
 }
