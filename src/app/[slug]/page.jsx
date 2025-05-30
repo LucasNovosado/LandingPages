@@ -5,12 +5,12 @@ import { useParams, useRouter } from 'next/navigation';
 import { initializeParse, getStoreBySlug } from '../../services/parseService';
 
 // Import modular CSS
-import commonStyles from './styles/Common.module.css';
-import headerStyles from './styles/Header.module.css';
-import heroStyles from './styles/Hero.module.css';
-import benefitsStyles from './styles/Benefits.module.css';
-import storeInfoStyles from './styles/StoreInfo.module.css';
-import footerStyles from './styles/Footer.module.css';
+import commonStyles from './Common.module.css';
+import headerStyles from './Header.module.css';
+import heroStyles from './Hero.module.css';
+import benefitsStyles from './Benefits.module.css';
+import storeInfoStyles from './StoreInfo.module.css';
+import footerStyles from './Footer.module.css';
 
 // Import JavaScript controllers
 import { pageController } from './js/pageController.js';
