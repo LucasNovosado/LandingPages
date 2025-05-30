@@ -129,7 +129,7 @@
   display: none;
 }
 
-/* Nova classe para imagem desktop dentro do conteúdo - centralizada */
+/* Nova classe para imagem desktop dentro do conteúdo - centralizada - AUMENTADA */
 .desktopImageInContent {
   display: flex;
   justify-content: center;
@@ -137,7 +137,7 @@
   position: relative;
   z-index: 2;
   margin: 2rem 0;
-  max-width: 400px; /* Controla o tamanho máximo da imagem */
+  max-width: 500px; /* AUMENTADO de 400px para 600px */
   width: 100%;
 }
 
@@ -148,7 +148,7 @@
 
 /* Preço destacado integrado */
 .priceContainer {
-  margin: 3rem 0;
+  margin: 4rem 0;
   font-family: 'Poppins';
 }
 
@@ -215,7 +215,7 @@
 }
 
 .btn {
-  padding: 1.3rem 2.8rem;
+  padding: .5rem 1.8rem;
   border: none;
   border-radius: 50px;
   font-size: 1.2rem;
@@ -234,6 +234,22 @@
   letter-spacing: 0.5px;
   box-shadow: 0 8px 25px rgba(0,0,0,0.2);
   font-family: 'Poppins', sans-serif;
+}
+
+/* Adicione esta regra ao seu arquivo Hero.module.css */
+
+/* Botões mais próximos apenas no desktop */
+@media (min-width: 769px) {
+  .buttonsContainer {
+    margin: 1rem 0 2.5rem 0; /* Reduzido de 3rem para 1rem no topo */
+  }
+}
+
+/* Ou se quiser ainda mais próximo, use margem negativa: */
+@media (min-width: 769px) {
+  .buttonsContainer {
+    margin: -1rem 0 2.5rem 0; /* Margem negativa para ficar ainda mais próximo */
+  }
 }
 
 .btn::before {
@@ -260,10 +276,10 @@
 .btnWhatsapp {
   background: linear-gradient(135deg, #0cc515 0%, #08d424 100%);
   color: white;
-  padding: 0.8rem 1.5rem; /* Menor que o padrão */
+  padding: 0.2rem 3.5rem; /* Menor que o padrão */
   border: none;
   border-radius: 50px;
-  font-size: 1rem; /* Menor que o padrão */
+  font-size: 2rem; /* Menor que o padrão */
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -278,7 +294,14 @@
   box-shadow: 0 8px 25px rgba(0,0,0,0.2);
   font-family: 'Poppins';
 }
-
+/* Ícones maiores apenas no desktop */
+@media (min-width: 769px) {
+  .buttonIcon {
+    width: 32px !important;
+    height: 32px !important;
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.2));
+  }
+}
 .btnWhatsapp:hover {
   transform: translateY(-3px) scale(1.02);
   box-shadow: 0 12px 35px rgba(37, 211, 102, 0.4);
@@ -288,6 +311,8 @@
   background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
   color: #1e40af;
   border: 2px solid rgba(255,255,255,0.3);
+    font-size: 2rem; /* Menor que o padrão */
+
 }
 
 .btnCall:hover {
@@ -299,6 +324,26 @@
 /* Ícones dos botões */
 .buttonIcon {
   filter: drop-shadow(0 1px 2px rgba(0,0,0,0.2));
+}
+
+/* Container amarelo horizontal - apenas desktop */
+.yellowBanner {
+  display: none; /* Oculto por padrão */
+}
+
+@media (min-width: 1024px) {
+  .yellowBanner {
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    height: 80px;
+    background-color: #fde047;
+    z-index: 10;
+    margin-top: 2rem;
+    box-shadow: 0 4px 15px rgba(253, 224, 71, 0.3);
+  }
 }
 
 /* Indicadores de confiança elegantes */
@@ -355,7 +400,7 @@
   max-width: 100%;
 }
 
-/* Imagem do produto no desktop - dentro do conteúdo */
+/* Imagem do produto no desktop - dentro do conteúdo - AUMENTADA */
 .desktopImageInContent .productImage {
   max-width: 100%;
   height: auto;
@@ -363,6 +408,8 @@
   border-radius: 20px;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.3));
+  /* NOVO: Tamanho aumentado apenas no desktop */
+  transform: scale(1.3); /* Aumenta a imagem em 30% */
 }
 
 /* Imagem do produto no mobile - tamanho normal */
@@ -376,6 +423,13 @@
 
 .productImage:hover {
   transform: translateY(-8px) scale(1.02);
+}
+
+/* NOVO: Hover específico para desktop com escala aumentada */
+@media (min-width: 769px) {
+  .desktopImageInContent .productImage:hover {
+    transform: translateY(-8px) scale(1.35); /* Mantém a escala aumentada no hover */
+  }
 }
 
 .placeholderImage {
@@ -444,7 +498,7 @@
   }
   
   .desktopImageInContent {
-    max-width: 350px;
+    max-width: 550px; /* AJUSTADO de 350px para 550px */
   }
 }
 
@@ -475,7 +529,7 @@
   }
   
   .desktopImageInContent {
-    max-width: 300px;
+    max-width: 500px; /* AJUSTADO de 300px para 500px */
   }
 }
 
@@ -657,13 +711,5 @@
     flex-direction: row;
     justify-content: center;
     gap: 1.5rem;
-  }
-}
-
-/* Mobile mantém vertical */
-@media (max-width: 768px) {
-  .priceDetailsContainer {
-    flex-direction: column;
-    gap: 0.8rem;
   }
 }
