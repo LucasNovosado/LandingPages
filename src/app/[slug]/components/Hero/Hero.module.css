@@ -171,7 +171,7 @@
 
 .priceHighlight {
   display: inline-block;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: #ffffff;
   margin: 0 0 0.5rem 0;
@@ -189,7 +189,7 @@
 }
 .priceDetails {
   display: inline-block;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: #ffffff;
   margin: 0 0 0.5rem 0;
@@ -578,11 +578,11 @@
   .heroContent h2 {
     font-size: 2.2rem;
     margin-bottom: 0rem;
-    margin-top: -60px;
+    margin-top: -30px;
   }
   
   .mobileImage {
-    margin: 0.5rem 0;
+    margin: 0.6rem 0;
   }
   
   .priceValue {
@@ -613,6 +613,7 @@
   /* Botão WhatsApp responsivo no mobile pequeno */
   .btnWhatsapp {
     max-width: 250px;
+    margin-top: -20px;
     padding: 0.6rem 1.3rem;
     font-size: 1.4rem;
     gap: 0.4rem;
@@ -637,5 +638,32 @@
   .trustItem {
     padding: 0.6rem 1rem;
     width: fit-content;
+  }
+}
+
+/* Adicione estas regras ao seu arquivo Hero.module.css existente */
+
+/* Container para priceHighlight e priceDetails ficarem lado a lado no desktop */
+.priceDetailsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+/* No desktop, priceHighlight e priceDetails ficam lado a lado */
+@media (min-width: 769px) {
+  .priceDetailsContainer {
+    flex-direction: row;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+}
+
+/* Mobile mantém vertical */
+@media (max-width: 768px) {
+  .priceDetailsContainer {
+    flex-direction: column;
+    gap: 0.8rem;
   }
 }

@@ -80,21 +80,26 @@ function Hero({ storeData, onWhatsAppClick, onCallClick }) {
             )}
           </div>
           
-          {/* Price Section */}
-          {storeData.preco_inicial && (
-            <div className={styles.priceContainer}>
-              <div className={styles.priceValue}>
-                A partir de R$ {formatPrice(storeData.preco_inicial) || storeData.preco_inicial}
-              </div>
-              <span className={styles.priceHighlight}>
-                ✅ Entrega e Instalação GRÁTIS
-              </span>
-              <p className={styles.priceDetails}>
-                💳 Parcele em até 12x no Cartão
-              </p>
-            </div>
-          )}
-          
+
+{/* Price Section */}
+{storeData.preco_inicial && (
+  <div className={styles.priceContainer}>
+    {/* priceValue fica sempre no topo */}
+    <div className={styles.priceValue}>
+      A partir de R$ {formatPrice(storeData.preco_inicial) || storeData.preco_inicial}
+    </div>
+    
+    {/* Container para priceHighlight e priceDetails */}
+    <div className={styles.priceDetailsContainer}>
+      <span className={styles.priceHighlight}>
+        ✅ Entrega e Instalação GRÁTIS
+      </span>
+      <p className={styles.priceDetails}>
+        💳 Parcele em até 12x no Cartão
+      </p>
+    </div>
+  </div>
+)}
           {/* Action Buttons */}
           <div className={styles.buttonsContainer}>
             <button 
