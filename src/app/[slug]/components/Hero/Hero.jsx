@@ -7,17 +7,19 @@ import Image from 'next/image';
 function Hero({ storeData, onWhatsAppClick, onCallClick }) {
   return (
     <section style={{ margin: 0, padding: 0, width: '100%' }}>
-      <div className={styles.heroGrid}>
-        
-        {/* Hero Content */}
-        <div className={styles.heroContent}>
-            <div className={styles.headerContent}>
+      {/* Header centralizado no topo da section - apenas no desktop */}
+      <div className={styles.headerContent}>
         <img 
           src="/header.png" 
           alt="Rede Única de Baterias - Bateria Automotiva com Garantia de Fábrica"
           className={styles.headerImage}
         />
       </div>
+      
+      <div className={styles.heroGrid}>
+        
+        {/* Hero Content */}
+        <div className={styles.heroContent}>
           <h2 className={styles.heroTitle}>
             <br />
             <span style={{ 
@@ -30,9 +32,38 @@ function Hero({ storeData, onWhatsAppClick, onCallClick }) {
             </span><br></br>
             {storeData.cidade}
           </h2>
+          
+          {/* Desktop Image - aparece logo após a cidade no desktop */}
+          <div className={styles.desktopImageInContent}>
+            {storeData.imagem_produto ? (
+              <div className={styles.imageContainer}>
+                <img 
+                  src={storeData.imagem_produto}
+                  alt={`Bateria Automotiva - ${storeData.cidade}`}
+                  className={styles.productImage}
+                  loading="eager"
+                />
+              </div>
+            ) : (
+              <div className={styles.placeholderImage}>
+                <div className={styles.placeholderIcon}>🔋</div>
+                <p className={styles.placeholderText}>Bateria Automotiva Premium</p>
+                <p className={styles.placeholderSubtext}>Qualidade Garantida</p>
+              </div>
+            )}
+          </div>
 
           {/* Mobile Image - só aparece no mobile */}
           <div className={styles.mobileImage}>
+            {/* Header também aparece no mobile dentro do mobileImage */}
+            <div className={styles.headerContent}>
+              <img 
+                src="/header.png" 
+                alt="Rede Única de Baterias - Bateria Automotiva com Garantia de Fábrica"
+                className={styles.headerImage}
+              />
+            </div>
+            
             {storeData.imagem_produto ? (
               <img 
                 src={storeData.imagem_produto}
@@ -99,24 +130,9 @@ function Hero({ storeData, onWhatsAppClick, onCallClick }) {
           </div>
         </div>
         
-        {/* Desktop Image - só aparece no desktop */}
+        {/* Desktop Image - coluna lateral removida */}
         <div className={styles.desktopImage}>
-          {storeData.imagem_produto ? (
-            <div className={styles.imageContainer}>
-              <img 
-                src={storeData.imagem_produto}
-                alt={`Bateria Automotiva - ${storeData.cidade}`}
-                className={styles.productImage}
-                loading="eager"
-              />
-            </div>
-          ) : (
-            <div className={styles.placeholderImage}>
-              <div className={styles.placeholderIcon}>🔋</div>
-              <p className={styles.placeholderText}>Bateria Automotiva Premium</p>
-              <p className={styles.placeholderSubtext}>Qualidade Garantida</p>
-            </div>
-          )}
+          {/* Esta div agora está vazia - a imagem foi movida para dentro do heroContent */}
         </div>
         
       </div>
