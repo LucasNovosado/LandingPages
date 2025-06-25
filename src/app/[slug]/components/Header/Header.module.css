@@ -1,0 +1,38 @@
+/* Import Poppins font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Header Section Styles */
+.header {
+  background: radial-gradient(ellipse at top left, #1e40af 0%, #1e3a8a 25%, #1d4ed8 50%);
+  color: white;
+  padding: 2rem 0;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Poppins', sans-serif;
+}
+
+.headerContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.headerImage {
+  max-width: 100%;
+  height: auto;
+  max-height: 200px;
+  object-fit: contain;
+}
+
+/* Removed styles for headerTitle and headerSubtitle since they're no longer used */
+
+@media (max-width: 768px) {
+  .header {
+    padding: 1rem 0;
+  }
+  
+  .headerImage {
+    max-height: 180px;
+  }
+}

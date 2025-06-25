@@ -1,0 +1,228 @@
+/* Botão WhatsApp Flutuante Elevado */
+.elevatedButton {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1000;
+  animation: slideUp 0.5s ease-out;
+}
+
+.button {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 
+    0 8px 25px rgba(37, 211, 102, 0.4),
+    0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.button:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 
+    0 12px 35px rgba(37, 211, 102, 0.5),
+    0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.button:active {
+  transform: translateY(-2px) scale(1.02);
+  transition: all 0.1s ease;
+}
+
+.iconContainer {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.whatsappIcon {
+  filter: brightness(0) invert(1);
+  transition: all 0.3s ease;
+}
+
+.button:hover .whatsappIcon {
+  transform: scale(1.1);
+}
+
+/* Efeito Ripple */
+.ripple {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  animation: rippleEffect 2s infinite;
+}
+
+@keyframes rippleEffect {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    width: 140px;
+    height: 140px;
+    opacity: 0;
+  }
+}
+
+/* Animação de Entrada */
+@keyframes slideUp {
+  from {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Animação de Pulso */
+.pulse {
+  animation: pulseScale 1s ease-in-out;
+}
+
+@keyframes pulseScale {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* Tooltip */
+.tooltip {
+  position: absolute;
+  right: 85px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(10px);
+  color: white;
+  padding: 0.75rem 1rem;
+  border-radius: 25px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  font-weight: 500;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.elevatedButton:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) translateX(-5px);
+}
+
+.tooltipText {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.tooltipArrow {
+  position: absolute;
+  right: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid rgba(0, 0, 0, 0.9);
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .elevatedButton {
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+  
+  .button {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .whatsappIcon {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .tooltip {
+    right: 75px;
+    font-size: 0.85rem;
+    padding: 0.6rem 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .elevatedButton {
+    bottom: 1rem;
+    right: 1rem;
+  }
+  
+  .button {
+    width: 55px;
+    height: 55px;
+  }
+  
+  .whatsappIcon {
+    width: 26px;
+    height: 26px;
+  }
+  
+  .tooltip {
+    display: none; /* Ocultar tooltip em telas muito pequenas */
+  }
+}
+
+/* Animação adicional para chamar atenção */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-8px);
+  }
+  60% {
+    transform: translateY(-4px);
+  }
+}
+
+.elevatedButton.bounce {
+  animation: bounce 2s infinite;
+}
+
+/* Estado de carregamento */
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.button:disabled:hover {
+  box-shadow: 
+    0 8px 25px rgba(37, 211, 102, 0.4),
+    0 4px 12px rgba(0, 0, 0, 0.15);
+}

@@ -1,0 +1,113 @@
+/* Store Info Section Styles */
+.storeInfoGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.storeImage {
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.storeImage img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.storeInfoCard {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e9ecef;
+}
+
+.storeInfoTitle {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #1e3c72;
+  margin: 0 0 2rem 0;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #e9ecef;
+}
+
+.storeInfoItem {
+  margin-bottom: 1.5rem;
+}
+
+.storeInfoItem:last-child {
+  margin-bottom: 0;
+}
+
+.storeInfoLabel {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #6c757d;
+  margin: 0 0 0.25rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.storeInfoValue {
+  font-size: 1.1rem;
+  color: #212529;
+  margin: 0;
+  font-weight: 500;
+}
+
+.mapButton {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e9ecef;
+}
+
+.btn {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  min-width: 180px;
+  justify-content: center;
+}
+
+.btnPrimary {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(30, 60, 114, 0.4);
+}
+
+.btnPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(30, 60, 114, 0.6);
+}
+
+@media (max-width: 768px) {
+  .storeInfoGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .storeInfoCard {
+    padding: 2rem;
+  }
+  
+  .storeInfoTitle {
+    font-size: 1.5rem;
+  }
+  
+  .btn {
+    width: 100%;
+    min-width: auto;
+  }
+}

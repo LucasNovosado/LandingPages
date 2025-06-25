@@ -1,0 +1,41 @@
+/* Footer Section Styles */
+.footer {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  color: white;
+  padding: 3rem 0 2rem 0;
+  margin-top: 4rem;
+}
+
+.footerContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.footerCopyright {
+  font-size: 1rem;
+  margin: 0 0 1rem 0;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.footerTagline {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+  color: #ffd700;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 2rem 0 1.5rem 0;
+  }
+  
+  .footerCopyright {
+    font-size: 0.9rem;
+  }
+  
+  .footerTagline {
+    font-size: 1.1rem;
+  }
+}
